@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#f5f5f5;color:#333;}
+body{font-family:'Montserrat',sans-serif;background:#111;color:#fff;}
 
 /* HEADER */
 header{
-  background:#ffffff;
+  background:#000;
   padding:10px 20px;
   display:flex;
   align-items:center;
@@ -19,61 +19,63 @@ header{
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  box-shadow:0 2px 10px rgba(0,0,0,0.5);
 }
 .logo img{height:50px;border-radius:12px;}
-.logo-text{font-size:28px;font-weight:800;color:#FF4FA3;}
+.logo-text{font-size:28px;font-weight:800;color:#FFC300;}
 
 /* NAVIGATION */
-nav{background:#e0e0e0;padding:12px;text-align:center;border-radius:12px;margin:10px;}
-nav a{color:#333;text-decoration:none;margin:0 12px;font-weight:600;position:relative;padding:8px 15px;border-radius:25px;transition:0.3s;background:#fff;box-shadow:0 3px 6px rgba(0,0,0,0.1);}
-nav a:hover{color:#fff;background:#FF4FA3;}
+nav{background:#111;padding:12px;text-align:center;border-radius:12px;margin:10px;}
+nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600;position:relative;padding:8px 15px;border-radius:25px;transition:0.3s;background:#222;box-shadow:0 3px 6px rgba(0,0,0,0.3);}
+nav a:hover{color:#000;background:#FFC300;}
 .dropdown{position:relative;display:inline-block;}
-.dropdown-content{display:none;position:absolute;background:#f0f0f0;min-width:150px;box-shadow:0 8px 16px rgba(0,0,0,0.2);border-radius:12px;z-index:100;}
-.dropdown-content a{color:#333;padding:10px 15px;display:block;text-decoration:none;border-radius:8px;margin:2px 0;}
-.dropdown-content a:hover{background:#FF4FA3;color:#fff;}
+.dropdown-content{display:none;position:absolute;background:#222;min-width:150px;box-shadow:0 8px 16px rgba(0,0,0,0.4);border-radius:12px;z-index:100;}
+.dropdown-content a{color:#fff;padding:10px 15px;display:block;text-decoration:none;border-radius:8px;margin:2px 0;}
+.dropdown-content a:hover{background:#FFC300;color:#000;}
 .dropdown:hover .dropdown-content{display:block;}
 
 /* SLIDER */
 .slider{width:100%;max-height:450px;overflow:hidden;position:relative;margin:20px 0;border-radius:12px;}
 .slide{display:none;width:100%;height:450px;background-size:cover;background-position:center;position:absolute;top:0;left:0;transition:all 1s ease;}
 .slide.active{display:block;}
-.slide-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);border-radius:12px;}
+.slide-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);border-radius:12px;}
 .slide-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;}
 .slide-text h2{font-size:36px;font-weight:800;text-shadow:2px 2px 6px #000;margin-bottom:10px;}
 .slide-text p{font-size:16px;text-shadow:1px 1px 6px #000;}
-.slide-text .btn{background:#FF4FA3;color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;transition:0.3s;box-shadow:0 4px 8px rgba(0,0,0,0.2);}
-.slide-text .btn:hover{background:#FFC300;color:#000;cursor:pointer;}
+.slide-text .btn{background:#FFC300;color:#000;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;transition:0.3s;box-shadow:0 4px 8px rgba(0,0,0,0.3);}
+.slide-text .btn:hover{background:#fff;color:#000;cursor:pointer;}
 
 /* SECTIONS */
 .section{padding:30px 20px;text-align:center;}
-.section h3{font-size:28px;margin-bottom:25px;font-weight:800;color:#333;}
+.section h3{font-size:28px;margin-bottom:25px;font-weight:800;color:#FFC300;}
 .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;justify-items:center;}
-.card{width:100%;padding:15px;border-radius:20px;background:#fff;transition:0.3s;box-shadow:0 8px 25px rgba(0,0,0,0.1);position:relative;}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.card{width:100%;padding:15px;border-radius:20px;background:#222;transition:0.3s;box-shadow:0 8px 25px rgba(0,0,0,0.5);position:relative;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.7);}
 .card img{width:100%;height:200px;object-fit:cover;border-radius:15px;margin-bottom:10px;}
-.card h4{margin-bottom:5px;font-size:16px;color:#FF4FA3;}
-.card p{font-size:14px;margin-bottom:5px;}
-.card .preco{font-weight:700;font-size:15px;}
-.card .btn-card{background:#FF4FA3;color:#fff;padding:8px 20px;border-radius:25px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:5px;box-shadow:0 4px 8px rgba(0,0,0,0.15);}
-.card .btn-card:hover{background:#FFC300;color:#000;cursor:pointer;}
+.card h4{margin-bottom:5px;font-size:16px;color:#FFC300;}
+.card p{font-size:14px;margin-bottom:5px;color:#fff;}
+.card .preco{font-weight:700;font-size:15px;color:#FFC300;}
+.card .btn-card{background:#FFC300;color:#000;padding:8px 20px;border-radius:25px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:5px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
+.card .btn-card:hover{background:#fff;color:#000;cursor:pointer;}
 .promo-tag{position:absolute;top:12px;right:12px;background:red;color:#fff;padding:5px 10px;border-radius:12px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
-.novo-tag{position:absolute;top:12px;left:12px;background:#FF4FA3;color:#fff;padding:5px 10px;border-radius:12px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
+.novo-tag{position:absolute;top:12px;left:12px;background:#FFC300;color:#000;padding:5px 10px;border-radius:12px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
 
 /* CARRINHO */
-#cart-button{position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:26px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;}
+#cart-button{position:fixed;bottom:20px;right:20px;background:#FFC300;color:#000;width:55px;height:55px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:26px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.5);transition:0.3s;z-index:999;}
 #cart-button:hover{transform:scale(1.1);}
-#cart-popup{position:fixed;bottom:85px;right:20px;width:320px;max-height:450px;background:#fff;border-radius:20px;box-shadow:0 5px 25px rgba(0,0,0,0.25);overflow:auto;display:none;flex-direction:column;padding:15px;z-index:999;}
-#cart-popup h3{text-align:center;color:#333;margin-bottom:10px;}
-.cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:5px;border-bottom:1px solid #eee;}
+#cart-popup{position:fixed;bottom:85px;right:20px;width:320px;max-height:450px;background:#222;border-radius:20px;box-shadow:0 5px 25px rgba(0,0,0,0.7);overflow:auto;display:none;flex-direction:column;padding:15px;z-index:999;}
+#cart-popup h3{text-align:center;color:#FFC300;margin-bottom:10px;}
+.cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:5px;border-bottom:1px solid #333;}
 .cart-item img{width:50px;height:50px;object-fit:cover;border-radius:8px;margin-right:8px;}
 .item-info{flex:1;}
-.item-info p{margin:0;font-size:0.8rem;}
+.item-info p{margin:0;font-size:0.8rem;color:#fff;}
 .quantity-controls{display:flex;align-items:center;gap:5px;margin-top:3px;}
 .quantity-controls button{background:#FFC300;color:#000;border:none;padding:2px 6px;border-radius:6px;cursor:pointer;font-weight:700;}
 .send-cart{background:#25D366;color:#fff;text-align:center;padding:10px;border-radius:15px;font-weight:700;margin-top:10px;cursor:pointer;transition:0.2s;}
 .send-cart:hover{background:#1EBE5B;}
-footer{background:#e0e0e0;color:#333;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
+
+/* FOOTER */
+footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
 @keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
 @media(max-width:768px){.produtos{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}.card{width:95%;}}
 </style>
@@ -104,7 +106,7 @@ footer{background:#e0e0e0;color:#333;text-align:center;padding:20px;font-size:13
     </div>
   </div>
   <a onclick="filterProducts('Promoção')">Promoção</a>
-  <a onclick="filterProducts('all')">Contato</a>
+  <a onclick="filterProducts('Contato')">Contato</a>
   <a onclick="filterProducts('Costura')">Reforma de Costura</a>
 </nav>
 
@@ -153,9 +155,14 @@ const products=[
   {name:"Vestido Midi Elegante",category:"Feminino",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
   {name:"Camiseta Masculina Slim",category:"Masculino",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
   {name:"Perfume Exclusivo AVON",category:"AVON",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:false,novo:true},
+  {name:"Perfume NATURA Clássico",category:"NATURA",price:199.9,img:"https://images.unsplash.com/photo-1612349316835-1c0736b5e42f?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
+  {name:"Perfume MARY KAY Deluxe",category:"MARY KAY",price:249.9,img:"https://images.unsplash.com/photo-1585657310238-36c91d5a89ff?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
   {name:"Blusa Feminina Estilosa",category:"Feminino",price:79.9,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
   {name:"Jaqueta Masculina Casual",category:"Masculino",price:199.9,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
+  {name:"Conjunto Infantil Menina",category:"Infantil",price:129.9,img:"https://images.unsplash.com/photo-1591368810077-1c0c32f7b158?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
+  {name:"Conjunto Infantil Menino",category:"Infantil",price:139.9,img:"https://images.unsplash.com/photo-1600185366836-b99f4c84f748?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
 ];
+
 const productList=document.getElementById('product-list');
 function renderProducts(filter='all'){
   productList.innerHTML='';
@@ -217,5 +224,6 @@ let slideIndex=0; const slideElements=document.querySelectorAll('.slide');
 function nextSlide(){slideElements.forEach(s=>s.classList.remove('active'));slideElements[slideIndex].classList.add('active');slideIndex=(slideIndex+1)%slideElements.length;}
 setInterval(nextSlide,5000);
 </script>
+
 </body>
 </html>
