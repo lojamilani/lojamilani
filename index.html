@@ -3,208 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja Milani</title>
-
+<title>Loja Milani - Loja Online Profissional</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: 'Montserrat', sans-serif;
-    background:#fff;
-    color:#333;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:#333;}
 
 /* HEADER */
-header{
-    background:#000;
-    padding:25px 20px;
-    text-align:center;
-}
-
-.logo{
-    font-size:38px;
-    font-weight:800;
-    letter-spacing:2px;
-    animation: slideIn 1s ease-out;
-}
-
-.logo span{
-    background: linear-gradient(45deg, #FFC300, #FF4FA3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header p{
-    color:#FFC300;
-    font-size:13px;
-    letter-spacing:3px;
-    animation: fadeIn 2s ease-out;
-}
+header{background:#000;padding:25px 20px;text-align:center;}
+.logo{font-size:38px;font-weight:800;letter-spacing:2px;animation:slideIn 1s ease-out;}
+.logo span{background:linear-gradient(45deg,#FFC300,#FF4FA3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+header p{color:#FFC300;font-size:13px;letter-spacing:3px;animation:fadeIn 2s ease-out;}
 
 /* MENU */
-nav{
-    background:#111;
-    padding:15px;
-    text-align:center;
-}
+nav{background:#111;padding:15px;text-align:center;}
+nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:500;transition:0.3s;}
+nav a:hover{color:#FF4FA3;}
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 18px;
-    font-weight:500;
-    transition:0.3s;
-}
+/* BANNER CARROSSEL */
+.banner-carousel{position:relative;width:100%;height:300px;overflow:hidden;border-radius:15px;margin:20px 0;}
+.banner-carousel img{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0;transition:opacity 1s;}
+.banner-carousel img.active{opacity:1;}
+.banner-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;text-shadow:1px 1px 5px #000;}
+.banner-text h2{font-size:36px;font-weight:800;margin-bottom:10px;}
+.banner-text p{font-size:18px;margin-bottom:15px;}
+.banner-text .btn{background:#000;color:#fff;padding:10px 25px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
+.banner-text .btn:hover{background:#fff;color:#000;}
 
-nav a:hover{
-    color:#FF4FA3;
-}
+/* SEÇÃO PRODUTOS */
+.section{padding:40px 20px;text-align:center;}
+.section h3{font-size:30px;margin-bottom:30px;font-weight:800;}
+.produtos{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.card{width:260px;padding:15px;border-radius:20px;background:#f9f9f9;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.05);position:relative;overflow:hidden;text-align:left;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12);}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:15px;margin-bottom:10px;}
+.card h4{margin-bottom:5px;font-size:18px;}
+.card p{font-size:14px;margin-bottom:5px;}
+.card .preco{font-weight:700;}
+.card .tele{font-size:13px;color:#555;}
+.card .btn-card{background:#000;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:10px;}
+.card .btn-card:hover{background:#fff;color:#000;}
+.promo-tag{position:absolute;top:10px;right:10px;background:red;color:#fff;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
 
-/* BANNER */
-.banner{
-    background: linear-gradient(120deg,#FFC300,#FF4FA3);
-    padding:100px 20px;
-    text-align:center;
-    color:#fff;
-    position: relative;
-    overflow: hidden;
-}
+/* MINIATURAS */
+.variations{display:flex;gap:5px;margin-top:5px;}
+.variations img{width:40px;height:40px;object-fit:cover;border-radius:5px;border:2px solid transparent;cursor:pointer;}
+.variations img.selected{border-color:#FF4FA3;}
 
-.banner h2{
-    font-size:42px;
-    font-weight:800;
-    margin-bottom:15px;
-    animation: fadeInDown 1s ease-out;
-}
+/* SLIDER DE PROMOÇÕES */
+.promo-slider{display:flex;overflow-x:auto;gap:15px;padding:20px;}
+.promo-card{min-width:200px;background:#FFC300;color:#000;border-radius:15px;padding:15px;flex-shrink:0;position:relative;}
+.promo-card h4{margin-bottom:5px;}
+.promo-card .btn-card{background:#000;color:#fff;margin-top:10px;}
+.promo-card .btn-card:hover{background:#fff;color:#000;}
 
-.banner p{
-    font-size:18px;
-    margin-bottom:30px;
-    animation: fadeIn 1.5s ease-out;
-}
-
-.btn{
-    background:#000;
-    color:#fff;
-    padding:12px 30px;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* SEÇÃO */
-.section{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.section h3{
-    font-size:30px;
-    margin-bottom:50px;
-    font-weight:800;
-}
-
-.produtos{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-}
-
-.card{
-    width:280px;
-    padding:25px;
-    border-radius:20px;
-    background:#f9f9f9;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.05);
-    position: relative;
-    overflow: hidden;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    background:linear-gradient(45deg,#FFC300,#FF4FA3);
-    color:#fff;
-}
-
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:15px;
-    margin-bottom:15px;
-}
-
-.card h4{
-    margin-bottom:10px;
-    font-size:20px;
-}
-
-.card p{
-    font-size:14px;
-    margin-bottom:10px;
-}
-
-.card .preco{
-    font-weight:700;
-    margin-bottom:15px;
-}
-
-.card .btn-card{
-    background:#000;
-    color:#fff;
-    padding:10px 20px;
-    border-radius:20px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.card .btn-card:hover{
-    background:#fff;
-    color:#000;
-}
+/* CARRINHO */
+#cart-button{position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:30px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;}
+#cart-button:hover{transform:scale(1.1);}
+#cart-popup{position:fixed;bottom:90px;right:20px;width:320px;max-height:400px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.25);overflow:auto;display:none;flex-direction:column;padding:15px;z-index:999;}
+#cart-popup h3{text-align:center;color:#FF4FA3;margin-bottom:10px;}
+.cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:5px;border-bottom:1px solid #eee;}
+.cart-item img{width:50px;height:50px;object-fit:cover;border-radius:8px;margin-right:10px;}
+.item-info{flex:1;}
+.item-info p{margin:0;font-size:0.9rem;}
+.quantity-controls{display:flex;align-items:center;gap:5px;margin-top:5px;}
+.quantity-controls button{background:#FF6EC7;color:#fff;border:none;padding:2px 8px;border-radius:5px;cursor:pointer;font-weight:600;}
+.send-cart{background:#25D366;color:#fff;text-align:center;padding:10px;border-radius:10px;font-weight:600;margin-top:10px;cursor:pointer;transition:0.2s;}
+.send-cart:hover{background:#1EBE5B;}
 
 /* FOOTER */
-footer{
-    background:#000;
-    color:#fff;
-    text-align:center;
-    padding:25px;
-    font-size:14px;
-}
+footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;margin-top:40px;}
 
 /* ANIMAÇÕES */
-@keyframes slideIn{
-    from{transform: translateY(-50px); opacity:0;}
-    to{transform: translateY(0); opacity:1;}
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-@keyframes fadeInDown{
-    from{transform: translateY(-20px); opacity:0;}
-    to{transform: translateY(0); opacity:1;}
-}
+@keyframes slideIn{from{transform:translateY(-50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes fadeInDown{from{transform:translateY(-20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
+@media(max-width:768px){.produtos{flex-direction:column;align-items:center;}.card{width:90%;}.promo-slider{flex-direction:column;}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -221,54 +98,120 @@ footer{
     <a href="#">Contato</a>
 </nav>
 
-<section class="banner">
-    <h2>Estilo que Marca Presença</h2>
-    <p>Moda moderna, ajustes profissionais e fragrâncias exclusivas.</p>
-    <a href="https://wa.me/5551992921991" class="btn">Fale no WhatsApp</a>
-</section>
+<!-- CARROSSEL -->
+<div class="banner-carousel">
+    <img src="https://via.placeholder.com/1200x300?text=Banner+1" class="active">
+    <img src="https://via.placeholder.com/1200x300?text=Banner+2">
+    <img src="https://via.placeholder.com/1200x300?text=Banner+3">
+    <div class="banner-text">
+        <h2>Moda que Encanta</h2>
+        <p>Serviços de costura e perfumes exclusivos</p>
+        <a href="https://wa.me/5551992921991" class="btn">Fale no WhatsApp</a>
+    </div>
+</div>
 
+<!-- PRODUTOS -->
 <section class="section">
-    <h3>Nossos Destaques</h3>
+    <h3>Produtos em Destaque</h3>
     <div class="produtos">
-
-        <div class="card">
-            <img src="https://via.placeholder.com/280x180?text=Vestido+Feminino" alt="Vestido Feminino">
-            <h4>Vestido Feminino</h4>
-            <p>Peça moderna e elegante.</p>
-            <p class="preco">R$ 120,00</p>
-            <a href="https://wa.me/5551992921991?text=Quero+comprar+Vestido+Feminino" class="btn-card">Comprar</a>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/280x180?text=Camiseta+Masculina" alt="Camiseta Masculina">
-            <h4>Camiseta Masculina</h4>
-            <p>Estilo casual e confortável.</p>
-            <p class="preco">R$ 85,00</p>
-            <a href="https://wa.me/5551992921991?text=Quero+comprar+Camiseta+Masculina" class="btn-card">Comprar</a>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/280x180?text=Perfume+Exclusivo" alt="Perfume">
-            <h4>Perfume Exclusivo</h4>
-            <p>Fragrância marcante.</p>
-            <p class="preco">R$ 150,00</p>
-            <a href="https://wa.me/5551992921991?text=Quero+comprar+Perfume+Exclusivo" class="btn-card">Comprar</a>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/280x180?text=Promoção+Especial" alt="Promoção">
-            <h4>Promoção Especial</h4>
-            <p>Peças selecionadas com desconto.</p>
-            <p class="preco">R$ 70,00</p>
-            <a href="https://wa.me/5551992921991?text=Quero+comprar+Promoção+Especial" class="btn-card">Comprar</a>
-        </div>
-
+        <!-- Aqui você pode repetir os cards com produtos -->
     </div>
 </section>
+
+<!-- PROMOÇÕES SLIDER -->
+<section class="section">
+    <h3>Promoções Especiais</h3>
+    <div class="promo-slider">
+        <div class="promo-card">
+            <h4>Vestido Midi</h4>
+            <p>R$ 129,90 + Tele R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Vestido Midi',129.9,15,'https://via.placeholder.com/260x180?text=Vestido+Midi')">Adicionar</a>
+        </div>
+        <div class="promo-card">
+            <h4>Camiseta Masculina</h4>
+            <p>R$ 79,90 + Tele R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Camiseta Masculina',79.9,15,'https://via.placeholder.com/260x180?text=Camiseta+Masculina')">Adicionar</a>
+        </div>
+        <div class="promo-card">
+            <h4>Perfume Exclusivo</h4>
+            <p>R$ 219,90 + Tele R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Perfume Exclusivo',219.9,15,'https://via.placeholder.com/260x180?text=Perfume+Exclusivo')">Adicionar</a>
+        </div>
+    </div>
+</section>
+
+<!-- CARRINHO -->
+<div id="cart-button" onclick="toggleCart()">🛒</div>
+<div id="cart-popup">
+    <h3>Seu Carrinho</h3>
+    <div id="cart-items"></div>
+    <div class="send-cart" onclick="sendCart()">Enviar WhatsApp</div>
+</div>
 
 <footer>
     © 2026 Loja Milani - Todos os direitos reservados
 </footer>
+
+<script>
+// CARROSSEL
+let banners=document.querySelectorAll('.banner-carousel img');
+let current=0;
+setInterval(()=>{
+    banners[current].classList.remove('active');
+    current=(current+1)%banners.length;
+    banners[current].classList.add('active');
+},4000);
+
+// CARRINHO
+let cart=[];
+function addToCart(name,price,delivery,img){
+    const existing=cart.find(item=>item.name===name);
+    if(existing){existing.qty++;}
+    else{cart.push({name,price,delivery,qty:1,img});}
+    renderCart(); toggleCart(true);
+}
+function renderCart(){
+    const cartDiv=document.getElementById('cart-items');
+    cartDiv.innerHTML='';
+    cart.forEach((item,i)=>{
+        const div=document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML=`
+            <img src="${item.img}" alt="${item.name}">
+            <div class="item-info">
+                <p>${item.name}</p>
+                <p>R$ ${item.price.toFixed(2)} + Tele R$ ${item.delivery.toFixed(2)}</p>
+                <div class="quantity-controls">
+                    <button onclick="changeQty(${i},-1)">-</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${i},1)">+</button>
+                </div>
+            </div>
+        `;
+        cartDiv.appendChild(div);
+    });
+}
+function changeQty(i,val){
+    cart[i].qty+=val;
+    if(cart[i].qty<=0) cart.splice(i,1);
+    renderCart();
+}
+function toggleCart(forceOpen=false){
+    const popup=document.getElementById('cart-popup');
+    if(forceOpen) popup.style.display='flex';
+    else popup.style.display=popup.style.display==='flex'?'none':'flex';
+}
+function sendCart(){
+    if(cart.length===0){ alert("Adicione produtos antes de enviar!"); return; }
+    let mensagem="Olá! Quero comprar:\n";
+    cart.forEach((item,i)=>{
+        let total=(item.price+item.delivery)*item.qty;
+        mensagem+=`${i+1}. ${item.name} - R$ ${(item.price*item.qty).toFixed(2)} + Tele R$ ${(item.delivery*item.qty).toFixed(2)} = Total R$ ${total.toFixed(2)}\n`;
+    });
+    const url="https://wa.me/5551992921991?text="+encodeURIComponent(mensagem);
+    window.open(url,"_blank");
+}
+</script>
 
 </body>
 </html>
