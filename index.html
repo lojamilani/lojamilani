@@ -3,58 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loja Milani - Profissional</title>
+<title>Loja Milani</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Montserrat',sans-serif;background:#fff;color:#333;}
 
 /* HEADER */
-header{background:#000;padding:20px;text-align:center;}
-.logo{font-size:42px;font-weight:800;letter-spacing:2px;background:linear-gradient(45deg,#FFC300,#FF4FA3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-header p{color:#FFC300;font-size:14px;letter-spacing:2px;margin-top:5px;}
+header{background:#FFDD59;padding:20px;text-align:center;}
+.logo{font-size:42px;font-weight:800;color:#FF4FA3;}
+header p{color:#000;font-size:14px;letter-spacing:2px;margin-top:5px;}
 
 /* NAVIGATION */
-nav{background:#111;padding:15px;text-align:center;}
+nav{background:#FF4FA3;padding:15px;text-align:center;}
 nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600;transition:0.3s;}
-nav a:hover{color:#FF4FA3;}
+nav a:hover{color:#FFDD59;}
 
-/* BANNER CARROSSEL */
+/* BANNER */
 .banner-carousel{position:relative;width:100%;height:400px;overflow:hidden;border-radius:15px;margin:20px 0;}
 .banner-carousel img{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0;transition:opacity 1s;}
 .banner-carousel img.active{opacity:1;}
 .banner-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;text-shadow:2px 2px 8px #000;}
 .banner-text h2{font-size:40px;font-weight:800;margin-bottom:10px;}
 .banner-text p{font-size:18px;margin-bottom:15px;}
-.banner-text .btn{background:#000;color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
-.banner-text .btn:hover{background:#fff;color:#000;}
+.banner-text .btn{background:#FF4FA3;color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
+.banner-text .btn:hover{background:#FFDD59;color:#000;}
 
 /* PRODUTOS */
 .section{padding:40px 20px;text-align:center;}
-.section h3{font-size:30px;margin-bottom:30px;font-weight:800;}
+.section h3{font-size:30px;margin-bottom:30px;font-weight:800;color:#FF4FA3;}
 .produtos{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-.card{width:260px;padding:15px;border-radius:20px;background:#f9f9f9;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.08);position:relative;overflow:hidden;text-align:left;}
+.card{width:260px;padding:15px;border-radius:20px;background:#fff3e0;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.08);position:relative;overflow:hidden;text-align:left;}
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12);}
 .card img{width:100%;height:180px;object-fit:cover;border-radius:15px;margin-bottom:10px;}
-.card h4{margin-bottom:5px;font-size:18px;}
+.card h4{margin-bottom:5px;font-size:18px;color:#FF4FA3;}
 .card p{font-size:14px;margin-bottom:5px;}
 .card .preco{font-weight:700;}
-.card .tele{font-size:13px;color:#555;}
+.card .tele{font-size:13px;color:#333;}
 .card .btn-card{background:#FF4FA3;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:10px;}
-.card .btn-card:hover{background:#FFC300;color:#000;}
+.card .btn-card:hover{background:#FFDD59;color:#000;}
 .promo-tag{position:absolute;top:10px;right:10px;background:red;color:#fff;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
-
-/* MINIATURAS */
-.variations{display:flex;gap:5px;margin-top:5px;}
-.variations img{width:40px;height:40px;object-fit:cover;border-radius:5px;border:2px solid transparent;cursor:pointer;}
-.variations img.selected{border-color:#FF4FA3;}
-
-/* PROMOÇÕES SLIDER */
-.promo-slider{display:flex;overflow-x:auto;gap:15px;padding:20px;}
-.promo-card{min-width:200px;background:#FFC300;color:#000;border-radius:15px;padding:15px;flex-shrink:0;position:relative;}
-.promo-card h4{margin-bottom:5px;}
-.promo-card .btn-card{background:#FF4FA3;color:#fff;margin-top:10px;}
-.promo-card .btn-card:hover{background:#FFC300;color:#000;}
 
 /* CARRINHO */
 #cart-button{position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:30px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;}
@@ -66,16 +54,16 @@ nav a:hover{color:#FF4FA3;}
 .item-info{flex:1;}
 .item-info p{margin:0;font-size:0.9rem;}
 .quantity-controls{display:flex;align-items:center;gap:5px;margin-top:5px;}
-.quantity-controls button{background:#FF6EC7;color:#fff;border:none;padding:2px 8px;border-radius:5px;cursor:pointer;font-weight:600;}
+.quantity-controls button{background:#FFDD59;color:#fff;border:none;padding:2px 8px;border-radius:5px;cursor:pointer;font-weight:600;}
 .send-cart{background:#25D366;color:#fff;text-align:center;padding:10px;border-radius:10px;font-weight:600;margin-top:10px;cursor:pointer;transition:0.2s;}
 .send-cart:hover{background:#1EBE5B;}
 
 /* FOOTER */
-footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;margin-top:40px;}
+footer{background:#FF4FA3;color:#fff;text-align:center;padding:25px;font-size:14px;margin-top:40px;}
 
 /* ANIMAÇÕES */
 @keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
-@media(max-width:768px){.produtos{flex-direction:column;align-items:center;}.card{width:90%;}.promo-slider{flex-direction:column;}}
+@media(max-width:768px){.produtos{flex-direction:column;align-items:center;}.card{width:90%;}}
 </style>
 </head>
 <body>
@@ -91,18 +79,18 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;
     <a href="#">Costura</a>
     <a href="#">Perfumes</a>
     <a href="#">Promoções</a>
-    <a href="#">Contato</a>
+    <a href="https://wa.me/5551992921991" target="_blank">Contato</a>
 </nav>
 
-<!-- CARROSSEL -->
+<!-- BANNER -->
 <div class="banner-carousel">
-    <img src="https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200" class="active">
-    <img src="https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
-    <img src="https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
+    <img src="https://images.unsplash.com/photo-1600185361257-4c3a75aef37e?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200" class="active">
+    <img src="https://images.unsplash.com/photo-1600185361227-cfefcb1dc45a?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
+    <img src="https://images.unsplash.com/photo-1600185361167-b1f3b6f8e63d?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
     <div class="banner-text">
         <h2>Moda que Encanta</h2>
         <p>Serviços de costura e perfumes exclusivos</p>
-        <a href="https://wa.me/5551992921991" class="btn">Fale no WhatsApp</a>
+        <a href="https://wa.me/5551992921991" class="btn" target="_blank">Fale no WhatsApp</a>
     </div>
 </div>
 
@@ -110,12 +98,6 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;
 <section class="section">
     <h3>Produtos em Destaque</h3>
     <div class="produtos" id="product-list"></div>
-</section>
-
-<!-- PROMOÇÕES -->
-<section class="section">
-    <h3>Promoções Especiais</h3>
-    <div class="promo-slider" id="promo-list"></div>
 </section>
 
 <!-- CARRINHO -->
@@ -143,17 +125,18 @@ setInterval(()=>{
 // PRODUTOS
 const products=[
     {name:"Vestido Midi Elegante",price:149.9,delivery:15,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Camiseta Masculina Slim",price:89.9,delivery:15,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
+    {name:"Camiseta Masculina Slim",price:89.9,delivery:15,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
     {name:"Perfume Exclusivo",price:219.9,delivery:15,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
     {name:"Blusa Feminina Estilosa",price:79.9,delivery:15,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
     {name:"Jaqueta Masculina Casual",price:199.9,delivery:15,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
     {name:"Saia Feminina Plissada",price:129.9,delivery:15,img:"https://images.unsplash.com/photo-1573231978090-f39d7b197b5b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
     {name:"Perfume Floral Feminino",price:179.9,delivery:15,img:"https://images.unsplash.com/photo-1567016546011-ef5f3a0bbdfb?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
     {name:"Camisa Social Masculina",price:139.9,delivery:15,img:"https://images.unsplash.com/photo-1556905055-8f358a7a47b1?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
+    {name:"Vestido Festa Longo",price:259.9,delivery:15,img:"https://images.unsplash.com/photo-1578575441505-1df29b7dfc3b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
+    {name:"Calça Jeans Masculina",price:119.9,delivery:15,img:"https://images.unsplash.com/photo-1556905055-10f5858b0d0b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false}
 ];
 
 const productList=document.getElementById('product-list');
-const promoList=document.getElementById('promo-list');
 products.forEach(p=>{
     const card=document.createElement('div');
     card.className='card';
@@ -167,17 +150,6 @@ products.forEach(p=>{
         <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},${p.delivery},'${p.img}')">Adicionar</a>
     `;
     productList.appendChild(card);
-
-    if(p.promo){
-        const promo=document.createElement('div');
-        promo.className='promo-card';
-        promo.innerHTML=`
-            <h4>${p.name}</h4>
-            <p>R$ ${p.price.toFixed(2)} + Tele R$ ${p.delivery.toFixed(2)}</p>
-            <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},${p.delivery},'${p.img}')">Adicionar</a>
-        `;
-        promoList.appendChild(promo);
-    }
 });
 
 // CARRINHO
@@ -230,6 +202,5 @@ function sendCart(){
     window.open(url,'_blank');
 }
 </script>
-
 </body>
 </html>
