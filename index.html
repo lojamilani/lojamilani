@@ -114,7 +114,47 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;
 <section class="section">
     <h3>Produtos em Destaque</h3>
     <div class="produtos">
-        <!-- Aqui você pode repetir os cards com produtos -->
+        <div class="card">
+            <div class="promo-tag">Promoção</div>
+            <img src="https://via.placeholder.com/260x180?text=Vestido+Midi" alt="Vestido Midi">
+            <h4>Vestido Midi Elegante</h4>
+            <p>Conforto e estilo para todas ocasiões.</p>
+            <p class="preco">R$ 149,90</p>
+            <p class="tele">Tele entrega: R$ 15,00</p>
+            <div class="variations">
+                <img src="https://via.placeholder.com/40x40?text=V1" onclick="changeImg(this,'https://via.placeholder.com/260x180?text=Vestido+Midi1')" class="selected">
+                <img src="https://via.placeholder.com/40x40?text=V2" onclick="changeImg(this,'https://via.placeholder.com/260x180?text=Vestido+Midi2')">
+            </div>
+            <a href="#" class="btn-card" onclick="addToCart('Vestido Midi Elegante',149.9,15,'https://via.placeholder.com/260x180?text=Vestido+Midi')">Adicionar</a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/260x180?text=Camiseta+Masculina" alt="Camiseta Masculina">
+            <h4>Camiseta Masculina Slim</h4>
+            <p>Estilo casual, tecido confortável.</p>
+            <p class="preco">R$ 89,90</p>
+            <p class="tele">Tele entrega: R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Camiseta Masculina Slim',89.9,15,'https://via.placeholder.com/260x180?text=Camiseta+Masculina')">Adicionar</a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/260x180?text=Perfume+Exclusivo" alt="Perfume Exclusivo">
+            <h4>Perfume Exclusivo</h4>
+            <p>Fragrância marcante para todas ocasiões.</p>
+            <p class="preco">R$ 219,90</p>
+            <p class="tele">Tele entrega: R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Perfume Exclusivo',219.9,15,'https://via.placeholder.com/260x180?text=Perfume+Exclusivo')">Adicionar</a>
+        </div>
+
+        <div class="card">
+            <div class="promo-tag">Promoção</div>
+            <img src="https://via.placeholder.com/260x180?text=Blusa+Feminina" alt="Blusa Feminina">
+            <h4>Blusa Feminina Estilosa</h4>
+            <p>Peça moderna e elegante.</p>
+            <p class="preco">R$ 79,90</p>
+            <p class="tele">Tele entrega: R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Blusa Feminina Estilosa',79.9,15,'https://via.placeholder.com/260x180?text=Blusa+Feminina')">Adicionar</a>
+        </div>
     </div>
 </section>
 
@@ -136,6 +176,11 @@ footer{background:#000;color:#fff;text-align:center;padding:25px;font-size:14px;
             <h4>Perfume Exclusivo</h4>
             <p>R$ 219,90 + Tele R$ 15,00</p>
             <a href="#" class="btn-card" onclick="addToCart('Perfume Exclusivo',219.9,15,'https://via.placeholder.com/260x180?text=Perfume+Exclusivo')">Adicionar</a>
+        </div>
+        <div class="promo-card">
+            <h4>Blusa Feminina</h4>
+            <p>R$ 79,90 + Tele R$ 15,00</p>
+            <a href="#" class="btn-card" onclick="addToCart('Blusa Feminina',79.9,15,'https://via.placeholder.com/260x180?text=Blusa+Feminina')">Adicionar</a>
         </div>
     </div>
 </section>
@@ -161,6 +206,14 @@ setInterval(()=>{
     current=(current+1)%banners.length;
     banners[current].classList.add('active');
 },4000);
+
+// MINIATURAS
+function changeImg(el,url){
+    let parent=el.closest('.card');
+    parent.querySelector('img').src=url;
+    parent.querySelectorAll('.variations img').forEach(i=>i.classList.remove('selected'));
+    el.classList.add('selected');
+}
 
 // CARRINHO
 let cart=[];
@@ -199,7 +252,7 @@ function changeQty(i,val){
 function toggleCart(forceOpen=false){
     const popup=document.getElementById('cart-popup');
     if(forceOpen) popup.style.display='flex';
-    else popup.style.display=popup.style.display==='flex'?'none':'flex';
+    else popup.style.display = popup.style.display==='flex'?'none':'flex';
 }
 function sendCart(){
     if(cart.length===0){ alert("Adicione produtos antes de enviar!"); return; }
@@ -212,6 +265,5 @@ function sendCart(){
     window.open(url,"_blank");
 }
 </script>
-
 </body>
 </html>
