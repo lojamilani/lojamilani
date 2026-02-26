@@ -7,37 +7,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#fff;color:#333;}
-
-/* HEADER */
-header{background:#FFC300;padding:15px;text-align:center;position:sticky;top:0;z-index:100;}
-.logo{font-size:36px;font-weight:800;color:#FF4FA3;}
-header p{color:#000;font-size:14px;letter-spacing:2px;margin-top:5px;}
-
-/* NAVIGATION */
-nav{background:#FF4FA3;padding:10px;text-align:center;position:sticky;top:70px;z-index:99;}
-nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600;transition:0.3s;position:relative;}
-nav a:hover{color:#FFC300;}
+body{font-family:'Montserrat',sans-serif;background:#f5f5f5;color:#333;}
+header{background:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.logo img{height:50px;}
+.logo-text{font-size:28px;font-weight:800;color:#333;}
+nav{background:#e0e0e0;padding:10px;text-align:center;}
+nav a{color:#333;text-decoration:none;margin:0 12px;font-weight:600;position:relative;cursor:pointer;}
+nav a:hover{color:#FF4FA3;}
 .dropdown{position:relative;display:inline-block;}
-.dropdown-content{display:none;position:absolute;background:#FF4FA3;min-width:140px;box-shadow:0 8px 16px rgba(0,0,0,0.2);border-radius:8px;z-index:100;}
-.dropdown-content a{color:#fff;padding:10px 12px;display:block;text-decoration:none;}
-.dropdown-content a:hover{background:#FFC300;color:#000;}
+.dropdown-content{display:none;position:absolute;background:#e0e0e0;min-width:140px;box-shadow:0 8px 16px rgba(0,0,0,0.2);border-radius:8px;z-index:100;}
+.dropdown-content a{color:#333;padding:10px 12px;display:block;text-decoration:none;}
+.dropdown-content a:hover{background:#FF4FA3;color:#fff;}
 .dropdown:hover .dropdown-content{display:block;}
-
-/* BANNER */
-.banner{position:relative;width:100%;height:400px;background-image:url('https://images.unsplash.com/photo-1610901513349-6181d5d7c6da?crop=entropy&cs=tinysrgb&fit=crop&h=400&w=1200');background-size:cover;background-position:center;border-radius:10px;margin:20px 0;display:flex;align-items:center;justify-content:center;}
-.banner-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);border-radius:10px;}
-.banner-text{position:relative;text-align:center;color:#fff;}
-.banner-text h2{font-size:36px;font-weight:800;margin-bottom:10px;text-shadow:2px 2px 6px #000;}
-.banner-text p{font-size:16px;margin-bottom:15px;text-shadow:1px 1px 6px #000;}
-.banner-text .btn{background:#FF4FA3;color:#fff;padding:10px 25px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
-.banner-text .btn:hover{background:#FFC300;color:#000;cursor:pointer;}
-
-/* SECTIONS */
+.slider{width:100%;max-height:400px;overflow:hidden;position:relative;margin:20px 0;border-radius:10px;}
+.slide{display:none;width:100%;height:400px;background-size:cover;background-position:center;position:absolute;top:0;left:0;}
+.slide.active{display:block;}
+.slide-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);}
+.slide-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;}
+.slide-text h2{font-size:36px;font-weight:800;text-shadow:2px 2px 6px #000;margin-bottom:10px;}
+.slide-text p{font-size:16px;text-shadow:1px 1px 6px #000;}
+.slide-text .btn{background:#FF4FA3;color:#fff;padding:10px 25px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
+.slide-text .btn:hover{background:#FFC300;color:#000;cursor:pointer;}
 .section{padding:30px 20px;text-align:center;}
-.section h3{font-size:28px;margin-bottom:25px;font-weight:800;color:#FF4FA3;}
+.section h3{font-size:28px;margin-bottom:25px;font-weight:800;color:#333;}
 .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;justify-items:center;}
-.card{width:100%;padding:12px;border-radius:15px;background:#fff3e0;transition:0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.08);position:relative;}
+.card{width:100%;padding:12px;border-radius:15px;background:#fff;transition:0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.08);position:relative;}
 .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,0.12);}
 .card img{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:8px;}
 .card h4{margin-bottom:5px;font-size:16px;color:#FF4FA3;}
@@ -46,12 +40,10 @@ nav a:hover{color:#FFC300;}
 .card .btn-card{background:#FF4FA3;color:#fff;padding:6px 16px;border-radius:20px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:5px;}
 .card .btn-card:hover{background:#FFC300;color:#000;cursor:pointer;}
 .promo-tag{position:absolute;top:10px;right:10px;background:red;color:#fff;padding:4px 8px;border-radius:5px;font-size:11px;font-weight:700;animation:blink 1s infinite;}
-
-/* CARRINHO */
 #cart-button{position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:50px;height:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:24px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;}
 #cart-button:hover{transform:scale(1.1);}
 #cart-popup{position:fixed;bottom:80px;right:20px;width:300px;max-height:400px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.25);overflow:auto;display:none;flex-direction:column;padding:10px;z-index:999;}
-#cart-popup h3{text-align:center;color:#FF4FA3;margin-bottom:10px;}
+#cart-popup h3{text-align:center;color:#333;margin-bottom:10px;}
 .cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:5px;border-bottom:1px solid #eee;}
 .cart-item img{width:45px;height:45px;object-fit:cover;border-radius:5px;margin-right:8px;}
 .item-info{flex:1;}
@@ -60,9 +52,7 @@ nav a:hover{color:#FFC300;}
 .quantity-controls button{background:#FFC300;color:#000;border:none;padding:2px 6px;border-radius:4px;cursor:pointer;font-weight:600;}
 .send-cart{background:#25D366;color:#fff;text-align:center;padding:8px;border-radius:8px;font-weight:600;margin-top:8px;cursor:pointer;transition:0.2s;}
 .send-cart:hover{background:#1EBE5B;}
-
-/* FOOTER */
-footer{background:#FF4FA3;color:#fff;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
+footer{background:#e0e0e0;color:#333;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
 @keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
 @media(max-width:768px){.produtos{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}.card{width:95%;}}
 </style>
@@ -70,77 +60,107 @@ footer{background:#FF4FA3;color:#fff;text-align:center;padding:20px;font-size:13
 <body>
 
 <header>
-    <div class="logo">LOJA MILANI</div>
-    <p>MODA • COSTURA • PERFUMES</p>
+  <div class="logo"><img src="https://via.placeholder.com/150x50?text=LOGO" alt="Loja Milani"></div>
+  <div class="logo-text">LOJA MILANI</div>
 </header>
 
 <nav>
-    <a href="#inicio">Início</a>
-    <div class="dropdown">
-        <a href="#">Roupas ▼</a>
-        <div class="dropdown-content">
-            <a href="#masculino">Masculino</a>
-            <a href="#feminino">Feminino</a>
-        </div>
+  <a onclick="filterProducts('all')">Início</a>
+  <div class="dropdown">
+    <a>Roupas ▼</a>
+    <div class="dropdown-content">
+      <a onclick="filterProducts('Masculino')">Masculino</a>
+      <a onclick="filterProducts('Feminino')">Feminino</a>
+      <a onclick="filterProducts('Infantil')">Infantil</a>
     </div>
-    <a href="#perfumes">Perfumaria</a>
-    <a href="#promocoes">Promoção</a>
-    <a href="#contato">Contato</a>
-    <a href="#costura">Reforma de Costura</a>
+  </div>
+  <div class="dropdown">
+    <a>Perfumaria ▼</a>
+    <div class="dropdown-content">
+      <a onclick="filterProducts('AVON')">AVON</a>
+      <a onclick="filterProducts('NATURA')">NATURA</a>
+      <a onclick="filterProducts('MARY KAY')">MARY KAY</a>
+    </div>
+  </div>
+  <a onclick="filterProducts('Promoção')">Promoção</a>
+  <a onclick="filterProducts('all')">Contato</a>
+  <a onclick="filterProducts('Costura')">Reforma de Costura</a>
 </nav>
 
-<!-- BANNER -->
-<div class="banner" id="inicio">
-    <div class="banner-overlay"></div>
-    <div class="banner-text">
-        <h2>Moda que Encanta</h2>
-        <p>Roupas, perfumes e serviços de costura</p>
-        <a href="https://wa.me/5551992921991" class="btn" target="_blank">Fale no WhatsApp</a>
+<div class="slider" id="promo-slider">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=400&w=1200');">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <h2>Promoção de Verão</h2>
+      <p>Roupas selecionadas com desconto especial!</p>
+      <a href="#colecoes" class="btn">Ver Promoções</a>
     </div>
+  </div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=400&w=1200');">
+    <div class="slide-overlay"></div>
+    <div class="slide-text">
+      <h2>Perfumes Exclusivos</h2>
+      <p>Fragrâncias irresistíveis para todas as ocasiões.</p>
+      <a href="#colecoes" class="btn">Ver Produtos</a>
+    </div>
+  </div>
 </div>
 
-<!-- PRODUTOS -->
 <section class="section" id="colecoes">
-    <h3>Produtos em Destaque</h3>
-    <div class="produtos" id="product-list"></div>
+  <h3>Produtos em Destaque</h3>
+  <div class="produtos" id="product-list"></div>
 </section>
 
-<!-- CARRINHO -->
 <div id="cart-button" onclick="toggleCart()">🛒</div>
 <div id="cart-popup">
-    <h3>Seu Carrinho</h3>
-    <div id="cart-items"></div>
-    <div class="send-cart" onclick="sendCart()">Enviar WhatsApp</div>
+  <h3>Seu Carrinho</h3>
+  <div id="cart-items"></div>
+  <div class="send-cart" onclick="sendCart()">Enviar WhatsApp</div>
 </div>
 
-<footer>
-    © 2026 Loja Milani - Todos os direitos reservados
-</footer>
+<footer>© 2026 Loja Milani - Todos os direitos reservados</footer>
 
 <script>
+// SLIDER
+let currentSlide=0;
+const slides=document.querySelectorAll('.slide');
+function showSlide(index){
+  slides.forEach((s,i)=>s.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);},4000);
+
 // PRODUTOS
 const products=[
-    {name:"Vestido Midi Elegante",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
-    {name:"Camiseta Masculina Slim",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
-    {name:"Perfume Exclusivo",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:false},
-    {name:"Blusa Feminina Estilosa",price:79.9,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
-    {name:"Jaqueta Masculina Casual",price:199.9,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Vestido Midi Elegante",category:"Feminino",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Camiseta Masculina Slim",category:"Masculino",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Perfume Exclusivo AVON",category:"AVON",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:false},
+    {name:"Blusa Feminina Estilosa",category:"Feminino",price:79.9,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Jaqueta Masculina Casual",category:"Masculino",price:199.9,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
 ];
-
 const productList=document.getElementById('product-list');
-products.forEach(p=>{
-    const card=document.createElement('div');
-    card.className='card';
-    if(p.promo) card.innerHTML+=`<div class="promo-tag">Promoção</div>`;
-    card.innerHTML+=`
-        <img src="${p.img}" alt="${p.name}">
-        <h4>${p.name}</h4>
-        <p>Descrição do produto</p>
-        <p class="preco">R$ ${p.price.toFixed(2)}</p>
-        <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},'${p.img}')">Adicionar</a>
-    `;
-    productList.appendChild(card);
-});
+function renderProducts(filter='all'){
+    productList.innerHTML='';
+    products.forEach(p=>{
+        if(filter==='all'||filter===p.category||(filter==='Promoção'&&p.promo)){
+            const card=document.createElement('div');
+            card.className='card';
+            if(p.promo) card.innerHTML+=`<div class="promo-tag">Promoção</div>`;
+            card.innerHTML+=`
+                <img src="${p.img}" alt="${p.name}">
+                <h4>${p.name}</h4>
+                <p>Categoria: ${p.category}</p>
+                <p class="preco">R$ ${p.price.toFixed(2)}</p>
+                <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},'${p.img}')">Adicionar</a>
+            `;
+            productList.appendChild(card);
+        }
+    });
+}
+renderProducts();
+
+// FILTRO
+function filterProducts(category){renderProducts(category);}
 
 // CARRINHO
 let cart=[];
