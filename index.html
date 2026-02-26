@@ -10,44 +10,94 @@
 body{font-family:'Montserrat',sans-serif;background:#fff;color:#333;}
 
 /* HEADER */
-header{background:#FFDD59;padding:20px;text-align:center;}
-.logo{font-size:42px;font-weight:800;color:#FF4FA3;}
-header p{color:#000;font-size:14px;letter-spacing:2px;margin-top:5px;}
+header{
+    background:#FFDD59;
+    padding:20px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.logo{
+    font-size:42px;font-weight:800;color:#FF4FA3;
+}
+header p{
+    color:#000;font-size:14px;letter-spacing:2px;margin-top:5px;
+}
 
 /* NAVIGATION */
-nav{background:#FF4FA3;padding:15px;text-align:center;}
-nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600;transition:0.3s;}
+nav{
+    background:#FF4FA3;
+    padding:15px;text-align:center;
+    position:sticky;top:80px;z-index:99;
+}
+nav a{
+    color:#fff;text-decoration:none;margin:0 12px;font-weight:600;transition:0.3s;
+}
 nav a:hover{color:#FFDD59;}
 
 /* BANNER */
-.banner-carousel{position:relative;width:100%;height:400px;overflow:hidden;border-radius:15px;margin:20px 0;}
-.banner-carousel img{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0;transition:opacity 1s;}
-.banner-carousel img.active{opacity:1;}
-.banner-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;text-shadow:2px 2px 8px #000;}
-.banner-text h2{font-size:40px;font-weight:800;margin-bottom:10px;}
-.banner-text p{font-size:18px;margin-bottom:15px;}
-.banner-text .btn{background:#FF4FA3;color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;}
-.banner-text .btn:hover{background:#FFDD59;color:#000;}
+.banner{
+    position:relative;width:100%;height:450px;
+    background-image:url('https://images.unsplash.com/photo-1610901513349-6181d5d7c6da?crop=entropy&cs=tinysrgb&fit=crop&h=450&w=1200');
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
+    margin:20px 0;
+    display:flex;align-items:center;justify-content:center;
+}
+.banner-overlay{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.4);border-radius:15px;
+}
+.banner-text{
+    position:relative;text-align:center;color:#fff;
+}
+.banner-text h2{
+    font-size:40px;font-weight:800;margin-bottom:10px;text-shadow:2px 2px 8px #000;
+}
+.banner-text p{
+    font-size:18px;margin-bottom:15px;text-shadow:1px 1px 6px #000;
+}
+.banner-text .btn{
+    background:#FF4FA3;color:#fff;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s;
+}
+.banner-text .btn:hover{
+    background:#FFDD59;color:#000;cursor:pointer;
+}
 
-/* PRODUTOS */
+/* SECTIONS */
 .section{padding:40px 20px;text-align:center;}
 .section h3{font-size:30px;margin-bottom:30px;font-weight:800;color:#FF4FA3;}
-.produtos{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-.card{width:260px;padding:15px;border-radius:20px;background:#fff3e0;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.08);position:relative;overflow:hidden;text-align:left;}
+.produtos{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;justify-items:center;
+}
+.card{
+    width:100%;padding:15px;border-radius:20px;background:#fff3e0;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.08);position:relative;overflow:hidden;text-align:left;
+}
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12);}
-.card img{width:100%;height:180px;object-fit:cover;border-radius:15px;margin-bottom:10px;}
+.card img{width:100%;height:200px;object-fit:cover;border-radius:15px;margin-bottom:10px;}
 .card h4{margin-bottom:5px;font-size:18px;color:#FF4FA3;}
 .card p{font-size:14px;margin-bottom:5px;}
 .card .preco{font-weight:700;}
-.card .tele{font-size:13px;color:#333;}
-.card .btn-card{background:#FF4FA3;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:10px;}
-.card .btn-card:hover{background:#FFDD59;color:#000;}
-.promo-tag{position:absolute;top:10px;right:10px;background:red;color:#fff;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:700;animation:blink 1s infinite;}
+.card .btn-card{
+    background:#FF4FA3;color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;margin-top:10px;
+}
+.card .btn-card:hover{background:#FFDD59;color:#000;cursor:pointer;}
+.promo-tag{
+    position:absolute;top:10px;right:10px;background:red;color:#fff;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:700;animation:blink 1s infinite;
+}
 
 /* CARRINHO */
-#cart-button{position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:30px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;}
+#cart-button{
+    position:fixed;bottom:20px;right:20px;background:#FF4FA3;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:30px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:999;
+}
 #cart-button:hover{transform:scale(1.1);}
-#cart-popup{position:fixed;bottom:90px;right:20px;width:320px;max-height:400px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.25);overflow:auto;display:none;flex-direction:column;padding:15px;z-index:999;}
+#cart-popup{
+    position:fixed;bottom:90px;right:20px;width:320px;max-height:400px;background:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.25);overflow:auto;display:none;flex-direction:column;padding:15px;z-index:999;
+}
 #cart-popup h3{text-align:center;color:#FF4FA3;margin-bottom:10px;}
 .cart-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:5px;border-bottom:1px solid #eee;}
 .cart-item img{width:50px;height:50px;object-fit:cover;border-radius:8px;margin-right:10px;}
@@ -63,7 +113,7 @@ footer{background:#FF4FA3;color:#fff;text-align:center;padding:25px;font-size:14
 
 /* ANIMAÇÕES */
 @keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
-@media(max-width:768px){.produtos{flex-direction:column;align-items:center;}.card{width:90%;}}
+@media(max-width:768px){.produtos{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}.card{width:90%;}}
 </style>
 </head>
 <body>
@@ -74,19 +124,17 @@ footer{background:#FF4FA3;color:#fff;text-align:center;padding:25px;font-size:14
 </header>
 
 <nav>
-    <a href="#">Início</a>
-    <a href="#">Coleções</a>
-    <a href="#">Costura</a>
-    <a href="#">Perfumes</a>
-    <a href="#">Promoções</a>
+    <a href="#inicio">Início</a>
+    <a href="#colecoes">Coleções</a>
+    <a href="#costura">Costura</a>
+    <a href="#perfumes">Perfumes</a>
+    <a href="#promocoes">Promoções</a>
     <a href="https://wa.me/5551992921991" target="_blank">Contato</a>
 </nav>
 
 <!-- BANNER -->
-<div class="banner-carousel">
-    <img src="https://images.unsplash.com/photo-1600185361257-4c3a75aef37e?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200" class="active">
-    <img src="https://images.unsplash.com/photo-1600185361227-cfefcb1dc45a?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
-    <img src="https://images.unsplash.com/photo-1600185361167-b1f3b6f8e63d?crop=entropy&cs=tinysrgb&fit=max&h=400&w=1200">
+<div class="banner" id="inicio">
+    <div class="banner-overlay"></div>
     <div class="banner-text">
         <h2>Moda que Encanta</h2>
         <p>Serviços de costura e perfumes exclusivos</p>
@@ -95,7 +143,7 @@ footer{background:#FF4FA3;color:#fff;text-align:center;padding:25px;font-size:14
 </div>
 
 <!-- PRODUTOS -->
-<section class="section">
+<section class="section" id="colecoes">
     <h3>Produtos em Destaque</h3>
     <div class="produtos" id="product-list"></div>
 </section>
@@ -113,27 +161,13 @@ footer{background:#FF4FA3;color:#fff;text-align:center;padding:25px;font-size:14
 </footer>
 
 <script>
-// CARROSSEL
-let banners=document.querySelectorAll('.banner-carousel img');
-let current=0;
-setInterval(()=>{
-    banners[current].classList.remove('active');
-    current=(current+1)%banners.length;
-    banners[current].classList.add('active');
-},4000);
-
 // PRODUTOS
 const products=[
-    {name:"Vestido Midi Elegante",price:149.9,delivery:15,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Camiseta Masculina Slim",price:89.9,delivery:15,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Perfume Exclusivo",price:219.9,delivery:15,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
-    {name:"Blusa Feminina Estilosa",price:79.9,delivery:15,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Jaqueta Masculina Casual",price:199.9,delivery:15,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Saia Feminina Plissada",price:129.9,delivery:15,img:"https://images.unsplash.com/photo-1573231978090-f39d7b197b5b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
-    {name:"Perfume Floral Feminino",price:179.9,delivery:15,img:"https://images.unsplash.com/photo-1567016546011-ef5f3a0bbdfb?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Camisa Social Masculina",price:139.9,delivery:15,img:"https://images.unsplash.com/photo-1556905055-8f358a7a47b1?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false},
-    {name:"Vestido Festa Longo",price:259.9,delivery:15,img:"https://images.unsplash.com/photo-1578575441505-1df29b7dfc3b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:true},
-    {name:"Calça Jeans Masculina",price:119.9,delivery:15,img:"https://images.unsplash.com/photo-1556905055-10f5858b0d0b?crop=entropy&cs=tinysrgb&fit=max&h=180&w=260",promo:false}
+    {name:"Vestido Midi Elegante",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Camiseta Masculina Slim",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Perfume Exclusivo",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:false},
+    {name:"Blusa Feminina Estilosa",price:79.9,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
+    {name:"Jaqueta Masculina Casual",price:199.9,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true},
 ];
 
 const productList=document.getElementById('product-list');
@@ -146,18 +180,17 @@ products.forEach(p=>{
         <h4>${p.name}</h4>
         <p>Descrição do produto</p>
         <p class="preco">R$ ${p.price.toFixed(2)}</p>
-        <p class="tele">Tele entrega: R$ ${p.delivery.toFixed(2)}</p>
-        <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},${p.delivery},'${p.img}')">Adicionar</a>
+        <a href="#" class="btn-card" onclick="addToCart('${p.name}',${p.price},'${p.img}')">Adicionar</a>
     `;
     productList.appendChild(card);
 });
 
 // CARRINHO
 let cart=[];
-function addToCart(name,price,delivery,img){
+function addToCart(name,price,img){
     const existing=cart.find(item=>item.name===name);
     if(existing){existing.qty++;}
-    else{cart.push({name,price,delivery,qty:1,img});}
+    else{cart.push({name,price,qty:1,img});}
     renderCart(); toggleCart(true);
 }
 function renderCart(){
@@ -170,7 +203,7 @@ function renderCart(){
             <img src="${item.img}" alt="${item.name}">
             <div class="item-info">
                 <p>${item.name}</p>
-                <p>R$ ${item.price.toFixed(2)} + Tele R$ ${item.delivery.toFixed(2)}</p>
+                <p>R$ ${item.price.toFixed(2)}</p>
                 <div class="quantity-controls">
                     <button onclick="changeQty(${i},-1)">-</button>
                     <span>${item.qty}</span>
@@ -195,7 +228,7 @@ function sendCart(){
     if(cart.length===0){ alert("Adicione produtos antes de enviar!"); return; }
     let msg="Olá! Quero comprar:\n";
     cart.forEach((item,i)=>{
-        let total=(item.price+item.delivery)*item.qty;
+        let total=item.price*item.qty;
         msg+=`${i+1}. ${item.name} - ${item.qty}x - Total: R$ ${total.toFixed(2)}\n`;
     });
     const url="https://wa.me/5551992921991?text="+encodeURIComponent(msg);
