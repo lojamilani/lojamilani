@@ -7,25 +7,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:#111;color:#fff;}
+body{font-family:'Montserrat',sans-serif;background:#111 url('https://images.unsplash.com/photo-1600185366836-b99f4c84f748?crop=entropy&cs=tinysrgb&fit=crop&w=1400&q=80') no-repeat center center fixed;background-size:cover;color:#fff;}
 
 /* HEADER */
-header{
-  background:#000;
-  padding:10px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 2px 10px rgba(0,0,0,0.5);
-}
+header{background:rgba(0,0,0,0.8);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo img{height:50px;border-radius:12px;}
 .logo-text{font-size:28px;font-weight:800;color:#FFC300;}
 
 /* NAVIGATION */
-nav{background:#111;padding:12px;text-align:center;border-radius:12px;margin:10px;}
+nav{background:rgba(0,0,0,0.8);padding:12px;text-align:center;border-radius:12px;margin:10px;}
 nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600;position:relative;padding:8px 15px;border-radius:25px;transition:0.3s;background:#222;box-shadow:0 3px 6px rgba(0,0,0,0.3);}
 nav a:hover{color:#000;background:#FFC300;}
 .dropdown{position:relative;display:inline-block;}
@@ -46,7 +36,7 @@ nav a:hover{color:#000;background:#FFC300;}
 .slide-text .btn:hover{background:#fff;color:#000;cursor:pointer;}
 
 /* SECTIONS */
-.section{padding:30px 20px;text-align:center;}
+.section{padding:30px 20px;text-align:center;background:rgba(0,0,0,0.6);border-radius:12px;margin:20px;}
 .section h3{font-size:28px;margin-bottom:25px;font-weight:800;color:#FFC300;}
 .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;justify-items:center;}
 .card{width:100%;padding:15px;border-radius:20px;background:#222;transition:0.3s;box-shadow:0 8px 25px rgba(0,0,0,0.5);position:relative;}
@@ -75,7 +65,7 @@ nav a:hover{color:#000;background:#FFC300;}
 .send-cart:hover{background:#1EBE5B;}
 
 /* FOOTER */
-footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
+footer{background:rgba(0,0,0,0.9);color:#fff;text-align:center;padding:20px;font-size:13px;margin-top:30px;}
 @keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
 @media(max-width:768px){.produtos{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}.card{width:95%;}}
 </style>
@@ -83,7 +73,7 @@ footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;
 <body>
 
 <header>
-  <div class="logo"><img src="https://via.placeholder.com/150x50?text=Logo+Milani" alt="Logo Milani"></div>
+  <div class="logo"><img src="https://images.unsplash.com/photo-1600185366836-b99f4c84f748?crop=entropy&cs=tinysrgb&fit=crop&w=150&q=80" alt="Logo Milani"></div>
   <div class="logo-text">LOJA MILANI</div>
 </header>
 
@@ -110,25 +100,6 @@ footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;
   <a onclick="filterProducts('Costura')">Reforma de Costura</a>
 </nav>
 
-<div class="slider" id="promo-slider">
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=450&w=1200');">
-    <div class="slide-overlay"></div>
-    <div class="slide-text">
-      <h2>Promoção de Verão</h2>
-      <p>Roupas selecionadas com desconto especial!</p>
-      <a href="#colecoes" class="btn">Ver Promoções</a>
-    </div>
-  </div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=450&w=1200');">
-    <div class="slide-overlay"></div>
-    <div class="slide-text">
-      <h2>Perfumes Exclusivos</h2>
-      <p>Fragrâncias irresistíveis para todas as ocasiões.</p>
-      <a href="#colecoes" class="btn">Ver Produtos</a>
-    </div>
-  </div>
-</div>
-
 <section class="section" id="colecoes">
   <h3>Produtos em Destaque</h3>
   <div class="produtos" id="product-list"></div>
@@ -144,23 +115,14 @@ footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;
 <footer>© 2026 Loja Milani - Todos os direitos reservados</footer>
 
 <script>
-// SLIDER
-let currentSlide=0;
-const slides=document.querySelectorAll('.slide');
-function showSlide(index){slides.forEach((s,i)=>s.classList.remove('active'));slides[index].classList.add('active');}
-setInterval(()=>{currentSlide=(currentSlide+1)%slides.length;showSlide(currentSlide);},5000);
-
 // PRODUTOS
 const products=[
-  {name:"Vestido Midi Elegante",category:"Feminino",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
-  {name:"Camiseta Masculina Slim",category:"Masculino",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
-  {name:"Perfume Exclusivo AVON",category:"AVON",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:false,novo:true},
-  {name:"Perfume NATURA Clássico",category:"NATURA",price:199.9,img:"https://images.unsplash.com/photo-1612349316835-1c0736b5e42f?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
-  {name:"Perfume MARY KAY Deluxe",category:"MARY KAY",price:249.9,img:"https://images.unsplash.com/photo-1585657310238-36c91d5a89ff?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
-  {name:"Blusa Feminina Estilosa",category:"Feminino",price:79.9,img:"https://images.unsplash.com/photo-1585386959984-a41552227a12?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:false},
-  {name:"Jaqueta Masculina Casual",category:"Masculino",price:199.9,img:"https://images.unsplash.com/photo-1580716259205-2e7f2ec0e626?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
-  {name:"Conjunto Infantil Menina",category:"Infantil",price:129.9,img:"https://images.unsplash.com/photo-1591368810077-1c0c32f7b158?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
-  {name:"Conjunto Infantil Menino",category:"Infantil",price:139.9,img:"https://images.unsplash.com/photo-1600185366836-b99f4c84f748?crop=entropy&cs=tinysrgb&fit=crop&h=180&w=260",promo:true,novo:true},
+  {name:"Vestido Feminino",category:"Feminino",price:149.9,img:"https://images.unsplash.com/photo-1520975698512-8bfbfae7c3b2?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:true,novo:true},
+  {name:"Camiseta Masculina",category:"Masculino",price:89.9,img:"https://images.unsplash.com/photo-1593032465171-16d4c8c52a2b?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:true,novo:false},
+  {name:"Conjunto Infantil Menina",category:"Infantil",price:129.9,img:"https://images.unsplash.com/photo-1591368810077-1c0c32f7b158?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:true,novo:true},
+  {name:"Perfume AVON",category:"AVON",price:219.9,img:"https://images.unsplash.com/photo-1589945554950-5d6e3bcf98e5?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:true,novo:true},
+  {name:"Perfume NATURA",category:"NATURA",price:199.9,img:"https://images.unsplash.com/photo-1612349316835-1c0736b5e42f?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:false,novo:true},
+  {name:"Perfume MARY KAY",category:"MARY KAY",price:249.9,img:"https://images.unsplash.com/photo-1585657310238-36c91d5a89ff?crop=entropy&cs=tinysrgb&fit=crop&w=260&q=80",promo:true,novo:true},
 ];
 
 const productList=document.getElementById('product-list');
@@ -218,11 +180,6 @@ function renderCart(){
 function changeQty(i,val){cart[i].qty+=val;if(cart[i].qty<=0) cart.splice(i,1);renderCart();}
 function toggleCart(forceOpen=false){const popup=document.getElementById('cart-popup');if(forceOpen) popup.style.display='flex';else popup.style.display = popup.style.display==='flex'?'none':'flex';}
 function sendCart(){if(cart.length===0){alert("Adicione produtos antes de enviar!");return;}let msg="Olá! Quero comprar:\n";cart.forEach((item,i)=>{let total=item.price*item.qty;msg+=`${i+1}. ${item.name} - ${item.qty}x - Total: R$ ${total.toFixed(2)}\n`;});const url="https://wa.me/5551992921991?text="+encodeURIComponent(msg);window.open(url,'_blank');}
-
-// SLIDER
-let slideIndex=0; const slideElements=document.querySelectorAll('.slide');
-function nextSlide(){slideElements.forEach(s=>s.classList.remove('active'));slideElements[slideIndex].classList.add('active');slideIndex=(slideIndex+1)%slideElements.length;}
-setInterval(nextSlide,5000);
 </script>
 
 </body>
