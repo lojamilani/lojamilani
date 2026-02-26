@@ -31,6 +31,7 @@ header{
     font-size:38px;
     font-weight:800;
     letter-spacing:2px;
+    animation: slideIn 1s ease-out;
 }
 
 .logo span{
@@ -43,6 +44,7 @@ header p{
     color:#FFC300;
     font-size:13px;
     letter-spacing:3px;
+    animation: fadeIn 2s ease-out;
 }
 
 /* MENU */
@@ -70,17 +72,21 @@ nav a:hover{
     padding:100px 20px;
     text-align:center;
     color:#fff;
+    position: relative;
+    overflow: hidden;
 }
 
 .banner h2{
     font-size:42px;
     font-weight:800;
     margin-bottom:15px;
+    animation: fadeInDown 1s ease-out;
 }
 
 .banner p{
     font-size:18px;
     margin-bottom:30px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .btn{
@@ -119,11 +125,13 @@ nav a:hover{
 
 .card{
     width:280px;
-    padding:35px;
+    padding:25px;
     border-radius:20px;
     background:#f9f9f9;
     transition:0.3s;
     box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover{
@@ -132,9 +140,42 @@ nav a:hover{
     color:#fff;
 }
 
-.card h4{
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
     margin-bottom:15px;
+}
+
+.card h4{
+    margin-bottom:10px;
     font-size:20px;
+}
+
+.card p{
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.card .preco{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.card .btn-card{
+    background:#000;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.card .btn-card:hover{
+    background:#fff;
+    color:#000;
 }
 
 /* FOOTER */
@@ -144,6 +185,22 @@ footer{
     text-align:center;
     padding:25px;
     font-size:14px;
+}
+
+/* ANIMAÇÕES */
+@keyframes slideIn{
+    from{transform: translateY(-50px); opacity:0;}
+    to{transform: translateY(0); opacity:1;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fadeInDown{
+    from{transform: translateY(-20px); opacity:0;}
+    to{transform: translateY(0); opacity:1;}
 }
 </style>
 </head>
@@ -160,6 +217,7 @@ footer{
     <a href="#">Coleções</a>
     <a href="#">Costura</a>
     <a href="#">Perfumes</a>
+    <a href="#">Promoções</a>
     <a href="#">Contato</a>
 </nav>
 
@@ -174,18 +232,35 @@ footer{
     <div class="produtos">
 
         <div class="card">
-            <h4>Moda Feminina</h4>
-            <p>Peças modernas e tendências atuais.</p>
+            <img src="https://via.placeholder.com/280x180?text=Vestido+Feminino" alt="Vestido Feminino">
+            <h4>Vestido Feminino</h4>
+            <p>Peça moderna e elegante.</p>
+            <p class="preco">R$ 120,00</p>
+            <a href="https://wa.me/5551992921991?text=Quero+comprar+Vestido+Feminino" class="btn-card">Comprar</a>
         </div>
 
         <div class="card">
-            <h4>Costura & Ajustes</h4>
-            <p>Serviço profissional e personalizado.</p>
+            <img src="https://via.placeholder.com/280x180?text=Camiseta+Masculina" alt="Camiseta Masculina">
+            <h4>Camiseta Masculina</h4>
+            <p>Estilo casual e confortável.</p>
+            <p class="preco">R$ 85,00</p>
+            <a href="https://wa.me/5551992921991?text=Quero+comprar+Camiseta+Masculina" class="btn-card">Comprar</a>
         </div>
 
         <div class="card">
-            <h4>Perfumes</h4>
-            <p>Fragrâncias marcantes para todas ocasiões.</p>
+            <img src="https://via.placeholder.com/280x180?text=Perfume+Exclusivo" alt="Perfume">
+            <h4>Perfume Exclusivo</h4>
+            <p>Fragrância marcante.</p>
+            <p class="preco">R$ 150,00</p>
+            <a href="https://wa.me/5551992921991?text=Quero+comprar+Perfume+Exclusivo" class="btn-card">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/280x180?text=Promoção+Especial" alt="Promoção">
+            <h4>Promoção Especial</h4>
+            <p>Peças selecionadas com desconto.</p>
+            <p class="preco">R$ 70,00</p>
+            <a href="https://wa.me/5551992921991?text=Quero+comprar+Promoção+Especial" class="btn-card">Comprar</a>
         </div>
 
     </div>
