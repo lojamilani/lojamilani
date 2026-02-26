@@ -6,18 +6,34 @@
 <title>Loja Milani</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#fff8f0; color:#333; }
-  header { background: linear-gradient(135deg,#FFC700,#FF6EC7); color:#fff; text-align:center; padding:50px 20px; }
-  header h1 { font-size:3rem; margin-bottom:10px; }
-  header p { font-size:1.3rem; }
-  nav { display:flex; justify-content:center; gap:20px; background:#FF6EC7; padding:12px 0; position:sticky; top:0; z-index:100; }
-  nav a { color:#fff; text-decoration:none; font-weight:600; transition:0.2s; }
-  nav a:hover{ opacity:0.8; }
-  .filtros { display:flex; justify-content:center; gap:15px; margin:30px 0 10px; flex-wrap:wrap; }
-  .filtros button { background:#FFC700; border:none; padding:10px 20px; border-radius:25px; font-weight:600; cursor:pointer; transition:0.3s; }
-  .filtros button:hover{ background:#FFB800; }
-  .filtros button.active{ background:#FF6EC7; color:#fff; }
-  .catalogo { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; padding:20px; max-width:1200px; margin:auto; }
+  body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+
+  /* Header e logo */
+  header { text-align:center; background:#fff; padding:30px 20px; box-shadow:0 3px 8px rgba(0,0,0,0.1); }
+  .logo { font-size:2.5rem; font-weight:700; color:#FF6EC7; letter-spacing:2px; }
+  .logo span { color:#FFC700; }
+
+  /* Banner */
+  .banner { width:100%; height:250px; background:linear-gradient(135deg,#FF6EC7,#FFC700); display:flex; justify-content:center; align-items:center; color:#fff; font-size:2rem; font-weight:700; margin-bottom:40px; border-radius:10px; }
+
+  /* Navegação */
+  nav { display:flex; justify-content:center; gap:25px; margin-bottom:30px; flex-wrap:wrap; }
+  nav a { text-decoration:none; color:#FF6EC7; font-weight:600; padding:10px 15px; border-radius:8px; transition:0.2s; }
+  nav a:hover { background:#FFC700; color:#fff; }
+
+  /* Filtros e Subcategorias */
+  .filtros { display:flex; justify-content:center; gap:15px; margin-bottom:20px; flex-wrap:wrap; }
+  .filtros button { background:#FF6EC7; color:#fff; border:none; padding:10px 20px; border-radius:25px; font-weight:600; cursor:pointer; transition:0.3s; }
+  .filtros button:hover { background:#FFC700; color:#fff; }
+  .filtros button.active { background:#FFC700; color:#FF6EC7; }
+
+  /* Subcategorias */
+  .subcategoria { display:flex; justify-content:center; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+  .subcategoria button { background:#FFC700; color:#FF6EC7; border:none; padding:5px 15px; border-radius:20px; font-weight:600; cursor:pointer; transition:0.3s; }
+  .subcategoria button:hover { background:#FF6EC7; color:#fff; }
+
+  /* Catálogo */
+  .catalogo { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; padding:0 20px 40px 20px; max-width:1200px; margin:auto; }
   .produto { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-align:center; }
   .produto:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
   .produto img { width:100%; max-height:220px; object-fit:cover; }
@@ -26,14 +42,14 @@
   .produto p { font-size:0.95rem; color:#555; margin-bottom:8px; }
   .preco { font-weight:700; color:#FFC700; font-size:1.1rem; margin-bottom:10px; }
   .btn { display:inline-block; background:#FF6EC7; color:#fff; padding:10px 20px; border-radius:8px; font-weight:600; text-decoration:none; transition:0.2s; cursor:pointer; }
-  .btn:hover { background:#FF3EB2; }
+  .btn:hover { background:#FFC700; color:#fff; }
 
-  /* Chat WhatsApp com carrinho */
+  /* Chat WhatsApp */
   #chat-whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff; border-radius:50%; width:60px; height:60px; font-size:30px; display:flex; justify-content:center; align-items:center; cursor:pointer; box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:999; transition:0.3s; }
   #chat-whatsapp:hover { transform:scale(1.1); }
 
   /* Carrinho pop-up */
-  #cart-popup { position:fixed; bottom:90px; right:20px; width:300px; max-height:400px; background:#fff; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.25); overflow:auto; display:none; flex-direction:column; padding:15px; z-index:999; }
+  #cart-popup { position:fixed; bottom:90px; right:20px; width:320px; max-height:400px; background:#fff; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.25); overflow:auto; display:none; flex-direction:column; padding:15px; z-index:999; }
   #cart-popup h3 { margin:0 0 10px; text-align:center; color:#FF6EC7; }
   .cart-item { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:5px; border-bottom:1px solid #eee; }
   .cart-item img { width:50px; height:50px; object-fit:cover; border-radius:8px; margin-right:10px; }
@@ -50,60 +66,68 @@
 <body>
 
 <header>
-  <h1>Loja Milani</h1>
-  <p>Roupas, Perfumaria e Costura com estilo e qualidade</p>
+  <div class="logo">Loja <span>Milani</span></div>
 </header>
 
+<div class="banner">
+  Bem-vindo à Loja Milani — Roupas, Perfumaria e Costura
+</div>
+
 <nav>
+  <a href="#promo">Promoções</a>
   <a href="#roupas">Roupas</a>
   <a href="#perfumaria">Perfumaria</a>
   <a href="#costura">Costura</a>
 </nav>
 
+<!-- Filtros principais -->
 <div class="filtros">
   <button class="active" onclick="filterSelection('all')">Todos</button>
   <button onclick="filterSelection('roupas')">Roupas</button>
   <button onclick="filterSelection('perfumaria')">Perfumaria</button>
   <button onclick="filterSelection('costura')">Costura</button>
+  <button onclick="filterSelection('promo')">Promoções</button>
 </div>
 
-<section class="catalogo">
-  <!-- Produtos -->
-  <div class="produto roupas" data-nome="Camiseta Feminina" data-preco="79,90" data-img="https://via.placeholder.com/50x50?text=Camiseta+Feminina">
+<!-- Subcategorias -->
+<div class="subcategoria" id="subcat">
+  <!-- Serão atualizadas via JS dependendo da categoria -->
+</div>
+
+<section class="catalogo" id="catalogo">
+  <!-- Produtos de exemplo -->
+  <div class="produto roupas feminino" data-nome="Camiseta Feminina" data-preco="79,90" data-img="https://via.placeholder.com/50x50?text=Camiseta+Feminina">
     <img src="https://via.placeholder.com/300x300?text=Camiseta+Feminina" alt="Camiseta Feminina">
     <div class="produto-content">
       <h3>Camiseta Feminina</h3>
-      <p>Conforto e estilo para o dia a dia.</p>
+      <p>Conforto e estilo.</p>
       <p class="preco">R$ 79,90</p>
       <button class="btn" onclick="addToCart(this)">Adicionar</button>
     </div>
   </div>
-
-  <div class="produto roupas" data-nome="Camiseta Masculina" data-preco="85,90" data-img="https://via.placeholder.com/50x50?text=Camiseta+Masculina">
+  <div class="produto roupas masculino" data-nome="Camiseta Masculina" data-preco="85,90" data-img="https://via.placeholder.com/50x50?text=Camiseta+Masculina">
     <img src="https://via.placeholder.com/300x300?text=Camiseta+Masculina" alt="Camiseta Masculina">
     <div class="produto-content">
       <h3>Camiseta Masculina</h3>
-      <p>Estilo casual e confortável.</p>
+      <p>Estilo casual.</p>
       <p class="preco">R$ 85,90</p>
       <button class="btn" onclick="addToCart(this)">Adicionar</button>
     </div>
   </div>
-
-  <div class="produto perfumaria" data-nome="Perfume Floral" data-preco="129,90" data-img="https://via.placeholder.com/50x50?text=Perfume+Floral">
+  <div class="produto perfumaria masculino" data-nome="Perfume Floral" data-preco="129,90" data-img="https://via.placeholder.com/50x50?text=Perfume+Floral">
     <img src="https://via.placeholder.com/300x300?text=Perfume+Floral" alt="Perfume Floral">
     <div class="produto-content">
       <h3>Perfume Floral</h3>
-      <p>Aroma marcante para todas as ocasiões.</p>
+      <p>Aroma marcante.</p>
       <p class="preco">R$ 129,90</p>
       <button class="btn" onclick="addToCart(this)">Adicionar</button>
     </div>
   </div>
-
   <div class="produto costura" data-nome="Costura Sob Medida" data-preco="150,00" data-img="https://via.placeholder.com/50x50?text=Costura">
     <img src="https://via.placeholder.com/300x300?text=Costura" alt="Costura Sob Medida">
     <div class="produto-content">
       <h3>Costura Sob Medida</h3>
-      <p>Peças personalizadas de acordo com seu estilo.</p>
+      <p>Peças personalizadas.</p>
       <p class="preco">A partir de R$ 150,00</p>
       <button class="btn" onclick="addToCart(this)">Adicionar</button>
     </div>
@@ -111,9 +135,7 @@
 </section>
 
 <!-- Chat WhatsApp -->
-<div id="chat-whatsapp" onclick="toggleCart()">
-  💬
-</div>
+<div id="chat-whatsapp" onclick="toggleCart()">💬</div>
 
 <!-- Carrinho pop-up -->
 <div id="cart-popup">
@@ -128,7 +150,6 @@
 
 <script>
 let cart = [];
-
 function filterSelection(c) {
   const produtos = document.querySelectorAll('.produto');
   document.querySelectorAll('.filtros button').forEach(b => b.classList.remove('active'));
@@ -137,38 +158,49 @@ function filterSelection(c) {
     p.style.display = p.className.indexOf(c) > -1 || c==='' ? 'block' : 'none';
   });
   event.target.classList.add('active');
+
+  // Atualiza subcategorias
+  const subcatDiv = document.getElementById('subcat');
+  subcatDiv.innerHTML = '';
+  if(c==='roupas'){
+    ['Masculino','Feminino'].forEach(sc=>{
+      let btn = document.createElement('button');
+      btn.innerText = sc;
+      btn.onclick = ()=>filterSubCategory(sc.toLowerCase());
+      subcatDiv.appendChild(btn);
+    });
+  } else { subcatDiv.innerHTML=''; }
+}
+function filterSubCategory(sub){
+  const produtos = document.querySelectorAll('.produto');
+  produtos.forEach(p => {
+    p.style.display = p.className.indexOf(sub) > -1 ? 'block' : 'none';
+  });
 }
 
 // Carrinho pop-up
-function toggleCart() {
-  const popup = document.getElementById('cart-popup');
-  popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-}
+function toggleCart(){ document.getElementById('cart-popup').style.display=document.getElementById('cart-popup').style.display==='flex'?'none':'flex'; }
 
 // Adicionar ao carrinho
-function addToCart(btn) {
-  const prod = btn.closest('.produto');
-  const nome = prod.getAttribute('data-nome');
-  const preco = prod.getAttribute('data-preco');
-  const img = prod.getAttribute('data-img');
-
-  // Verifica se já existe no carrinho
-  const existe = cart.find(item => item.nome===nome);
-  if(existe){ existe.quantidade++; }
-  else{ cart.push({nome, preco, img, quantidade:1}); }
-
+function addToCart(btn){
+  const prod=btn.closest('.produto');
+  const nome=prod.getAttribute('data-nome');
+  const preco=prod.getAttribute('data-preco');
+  const img=prod.getAttribute('data-img');
+  const existe=cart.find(item=>item.nome===nome);
+  if(existe){existe.quantidade++;} else{cart.push({nome,preco,img,quantidade:1});}
   renderCart();
   toggleCart();
 }
 
 // Renderizar carrinho
-function renderCart() {
-  const cartDiv = document.getElementById('cart-items');
-  cartDiv.innerHTML = '';
-  cart.forEach((item, index) => {
-    const div = document.createElement('div');
+function renderCart(){
+  const cartDiv=document.getElementById('cart-items');
+  cartDiv.innerHTML='';
+  cart.forEach((item,index)=>{
+    const div=document.createElement('div');
     div.classList.add('cart-item');
-    div.innerHTML = `
+    div.innerHTML=`
       <img src="${item.img}" alt="${item.nome}">
       <div class="item-info">
         <p>${item.nome}</p>
@@ -185,20 +217,14 @@ function renderCart() {
 }
 
 // Alterar quantidade
-function changeQty(i, val){
-  cart[i].quantidade += val;
-  if(cart[i].quantidade <=0) cart.splice(i,1);
-  renderCart();
-}
+function changeQty(i,val){ cart[i].quantidade+=val; if(cart[i].quantidade<=0) cart.splice(i,1); renderCart(); }
 
 // Enviar WhatsApp
 function sendCart(){
   if(cart.length===0){ alert("Adicione produtos antes de enviar!"); return; }
-  let mensagem = "Olá! Quero comprar:\n";
-  cart.forEach((item,i)=>{
-    mensagem += `${i+1}. ${item.nome} - R$ ${item.preco} x ${item.quantidade}\n`;
-  });
-  const url = "https://wa.me/5591999999999?text=" + encodeURIComponent(mensagem);
+  let mensagem="Olá! Quero comprar:\n";
+  cart.forEach((item,i)=>{mensagem+=`${i+1}. ${item.nome} - R$ ${item.preco} x ${item.quantidade}\n`;});
+  const url="https://wa.me/5591999999999?text="+encodeURIComponent(mensagem);
   window.open(url,"_blank");
 }
 </script>
